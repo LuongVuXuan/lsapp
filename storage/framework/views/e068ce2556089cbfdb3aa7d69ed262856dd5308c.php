@@ -1,6 +1,6 @@
 <?php $__env->startSection('content'); ?>
-    <h1>Create Post</h1>
-    <?php echo Form::open(['action' => ['PostsController@update', $post->id], 'method' => 'POST']); ?>
+    <h1>Edit Post</h1>
+    <?php echo Form::open(['action' => ['PostsController@update', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']); ?>
 
         <div class="form-group">
             <?php echo e(Form::label('title', 'Title')); ?>
@@ -14,6 +14,10 @@
                 <?php echo e(Form::textarea('body', $post->body, ['class' => 'form-control', 'placeholder' => 'Body Text'])); ?>
 
         </div>
+        <div class="form-group">
+                <?php echo e(Form::file('cover_image')); ?>
+
+            </div>
         <?php echo e(Form::hidden('_method', 'PUT')); ?>
 
         <?php echo Form::submit('Submit', ['class' => 'btn btn-primary']); ?>
